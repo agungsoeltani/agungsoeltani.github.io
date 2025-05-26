@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agung Soeltani</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#hero" class="nav-logo">Agung Soeltani</a>
+            <nav class="nav-menu">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <button class="nav-toggle" aria-label="toggle navigation" aria-expanded="false">
+                <span class="hamburger-icon"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Creative <span class="highlight">Tech Enthusiast</span></h1>
+                    <p class="hero-subtitle">An enthusiast for IoT, Embedded Systems, Networking, and Linux, with an active curiosity spanning from RF to multimedia.</p>
+                    <div class="hero-cta-group">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">My Profile</span>
+                    <h2 class="section-title">Get to Know Me</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text-content">
+                        <p>I'm a self-taught tech enthusiast driven by curiosity to solve complex challenges where hardware, software, and creativity intersect. I enjoy bringing ideas to life as practical digital and physical solutions, and I'm always learning, exploring areas from cloud technologies to new technical applications.</p>
+                        <p>I've built a strong foundation in IoT and embedded systems, with projects like SMAPAR utilizing computer vision and microcontrollers to create smart solutions. This is complemented by versatile programming skills for various platforms. My hands-on experience includes network configuration, Linux system use, and delving into RF/telecommunications for tasks like antenna design and signal analysis. My commitment to independent learning and clear communication drives my growth, especially towards Cloud and DevOps.</p>
+
+                        <h3 class="skills-subheader">Key Skill Areas:</h3>
+                        <ul class="skills-grid"> 
+                            <li class="skill-block">
+                                <div class="skill-block-icon">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <h4 class="skill-block-title">IoT & Embedded Systems</h4>
+                                <p class="skill-block-details">
+                                    ESP32, Sensors, Actuators, SMAPAR Project, IoT Dashboards.
+                                </p>
+                            </li>
+                            <li class="skill-block">
+                                <div class="skill-block-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h4 class="skill-block-title">Programming & Web</h4>
+                                <p class="skill-block-details">
+                                    Arduino (C++), Python, JS, HTML/CSS, Firebase, Node-RED.
+                                </p>
+                            </li>
+                            <li class="skill-block">
+                                <div class="skill-block-icon">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <h4 class="skill-block-title">Networking & Linux</h4>
+                                <p class="skill-block-details">
+                                    Mikrotik, MQTT, Linux CLI, WiFi Analysis.
+                                </p>
+                            </li>
+                            <li class="skill-block">
+                                <div class="skill-block-icon">
+                                    <i class="fas fa-broadcast-tower"></i>
+                                </div>
+                                <h4 class="skill-block-title">RF & Telecommunications</h4>
+                                <p class="skill-block-details">
+                                    Yagi Antenna (CST), Signal Analysis, Jammer Experiments.
+                                </p>
+                            </li>
+                            <li class="skill-block">
+                                <div class="skill-block-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h4 class="skill-block-title">Problem Solving & Innovation</h4>
+                                <p class="skill-block-details">
+                                    Self-Learning, Exploration in Cloud, DevOps & Multimedia.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="about-image-container">
+                        <img src="images/agung.JPG" alt="Agung Soeltani's Profile Picture" class="profile-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">Portfolio</span>
+                    <h2 class="section-title">Selected Works & Explorations</h2>
+                </div>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-card-image-container">
+                            <img src="images/dht22.jpg" alt="Flow" class="project-image">
+                        </div>
+                        <div class="project-card-content">
+                            <h3 class="project-title">Flow</h3>
+                            <p class="project-tags">IoT, ESP32, DHT22, MQTT</p>
+                            <p class="project-description">An IoT-based automatic fan controller utilizing a DHT22 sensor, enabling real-time environmental monitoring and fan operation control via a web interface using the MQTT protocol.</p>
+                            <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Project Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-card-image-container">
+                            <img src="images/Jammer.jpg" alt="WiFi/Bluetooth Jammer Experiment" class="project-image">
+                        </div>
+                        <div class="project-card-content">
+                            <h3 class="project-title">SBITE V.1</h3>
+                            <p class="project-tags">RF, ESP32, Telecommunications</p>
+                            <p class="project-description">Exploration and design of a WiFi and Bluetooth signal jammer device to understand interference and frequency spectrum security.</p>
+                            <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Project Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                         <div class="project-card-image-container">
+                            <img src="images/Yagi.png" alt="Yagi Antenna Design" class="project-image">
+                        </div>
+                        <div class="project-card-content">
+                            <h3 class="project-title">Yagi Antenna</h3>
+                            <p class="project-tags">RF, CST Studio, Antenna Design</p>
+                            <p class="project-description">Designed and simulated a Yagi antenna in CST Studio for TV broadcasting applications, operating in the 400-600 MHz frequency range, with a focus on optimizing gain and radiation patterns."</p>
+                             <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Project Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                                        <article class="project-card">
+                         <div class="project-card-image-container">
+                            <img src="images/smapar.png" alt="SMAPAR" class="project-image">
+                        </div>
+                        <div class="project-card-content">
+                            <h3 class="project-title">SMAPAR</h3>
+                            <p class="project-tags">AI, Yolo V8, Raspberry PI</p>
+                            <p class="project-description">As a group project, we developed an IoT-based automatic parking spot finder using an ESP32-CAM for image capture. The system employs computer vision with YOLOv8 to detect available parking spaces, transmitting the data via MQTT to a local server (Raspberry Pi 5) for web-based monitoring."</p>
+                             <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Project Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                                        <article class="project-card">
+                         <div class="project-card-image-container">
+                            <img src="images/bytez.png" alt="Bytez" class="project-image">
+                        </div>
+                        <div class="project-card-content">
+                            <h3 class="project-title">Bytez</h3>
+                            <p class="project-tags">Matlab, QOS, Wireshark</p>
+                            <p class="project-description">Developed a standalone MATLAB application to analyze and calculate Quality of Service (QoS) metrics for ICMP packets by processing data from Wireshark CSV files. This application is capable of parsing ICMP packet data from these files to evaluate network performance parameters such as latency, jitter, and packet loss, thereby providing a comprehensive QoS analysis.</p>
+                             <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Project Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tagline">Let's Connect</span>
+                    <h2 class="section-title">Ready to Start Your Next Project?</h2>
+                </div>
+                <div class="contact-content-wrapper">
+                    <div class="contact-info">
+                        <p>I'm always enthusiastic about discussing new projects, creative ideas, or collaboration opportunities. Feel free to reach out.</p>
+                        <ul class="contact-details">
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:agungsoeltani@gmail.com">agungsoeltani@gmail.com</a></li>
+                            <li><i class="fas fa-phone-alt"></i> <a href="tel:+62895372179752">+62 895 3721 79752</a></li>
+                            <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/agungsoeltani" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></li>
+                            <li><i class="fab fa-github"></i> <a href="https://github.com/agungsoeltani" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+                        </ul>
+                    </div>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder="Your Full Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder="Email Address">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Agung Soeltani. Designed with <i class="fas fa-heart footer-heart"></i>.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

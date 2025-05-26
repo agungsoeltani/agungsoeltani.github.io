@@ -298,6 +298,31 @@ main {
     background-position: center; */
 }
 
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Atau lebar spesifik yang Anda inginkan, misalnya 800px */
+  max-width: 90%; /* Batas maksimum lebar container */
+  margin: 0 auto; /* Untuk centering horizontal jika parent bukan flex/grid */
+  padding: 20px; /* Opsional, untuk memberi jarak di dalam container */
+  box-sizing: border-box; /* Agar padding tidak menambah total lebar */
+}
+
+.game-container main {
+  width: 100%; /* Main akan mengisi lebar game-container */
+  max-width: 100%; /* Pastikan main tidak lebih besar dari game-container */
+  display: flex; /* Untuk centering iframe jika diperlukan */
+  justify-content: center; /* Untuk centering iframe jika diperlukan */
+}
+
+.game-container iframe {
+  width: 100%; /* Iframe akan mengisi lebar parent (main) */
+  max-width: 100%; /* Pastikan iframe tidak lebih besar dari parent (main) */
+  aspect-ratio: 16 / 9; /* Opsional: Menjaga rasio aspek video umum */
+  border: none; /* Opsional: Menghilangkan border default iframe */
+}
+
 /* -------------------------------------------------------------------------- */
 /* About Section                                                              */
 /* -------------------------------------------------------------------------- */

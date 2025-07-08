@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             // Panggil Serverless Function Anda
             // PENTING: Anda harus membuat file ini di Vercel/Netlify. Lihat contoh di bawah.
-            const response = await fetch('/api/cuaca'); 
+            const response = await fetch('https://weather-api-agung.netlify.app/api/cuaca'); 
             const weatherData = await response.json();
 
             if (!weatherData || weatherData.length === 0) {

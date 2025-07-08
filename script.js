@@ -1,42 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- LOGIKA TAB UNTUK BAGIAN "ABOUT" ---
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const targetTab = button.getAttribute('data-tab');
-
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-
-            button.classList.add('active');
-            document.getElementById(targetTab).classList.add('active');
-        });
-    });
+    // LOGIKA TAB SUDAH DIHAPUS
 
     // --- LOGIKA LIGHT/DARK MODE YANG SIMPEL DAN CEPAT ---
     const themeToggleButton = document.getElementById('theme-toggle');
     const body = document.body;
 
-    // Fungsi untuk menerapkan tema berdasarkan status saat ini
     const applyTheme = (theme) => {
         body.classList.toggle('dark-mode', theme === 'dark');
     };
 
-    // Cek tema yang tersimpan atau preferensi sistem saat halaman dimuat
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    // Terapkan tema yang sesuai
     applyTheme(savedTheme || (systemPrefersDark ? 'dark' : 'light'));
 
-    // Event listener untuk tombol: cukup toggle class dan simpan
     themeToggleButton.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         const newTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
         localStorage.setItem('theme', newTheme);
+    });
+
+    // --- LOGIKA SLIDESHOW GAMBAR PROYEK ---
+    const projectCards = document.querySelectorAll('.project-card');
+
+    projectCards.forEach(card => {
+        const images = card.querySelectorAll('.project-card-image img');
+        let currentIndex = 0;
+        let intervalId = null;
+
+        if (images.length <= 1) return;
+
+        card.addEventListener('mouseenter', () => {
+            intervalId = setInterval(() => {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }, 1500);
+        });
+
+        card.addEventListener('mouseleave', () => {
+            clearInterval(intervalId);
+            images[currentIndex].classList.remove('active');
+            currentIndex = 0;
+            images[currentIndex].classList.add('active');
+        });
     });
 
 });

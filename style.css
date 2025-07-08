@@ -62,7 +62,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: var(--accent-color);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     text-align: left;
 }
 
@@ -80,7 +80,6 @@ body {
 }
 
 .header-content {
-    /* PERBAIKAN: Menambahkan padding agar tidak mepet di semua layar */
     max-width: 1024px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -184,77 +183,17 @@ a:hover {
     padding: 6rem 0;
 }
 
-/* ABOUT SECTION & TABS */
-.tab-nav {
-    display: flex;
-    gap: 1rem;
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 2.5rem;
-}
-
-.tab-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 1rem 0;
-    font-family: 'Satoshi', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--secondary-text-color);
-    position: relative;
-    transition: color 0.4s var(--transition-smooth);
-}
-
-.tab-button::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--accent-color);
-    transform: scaleX(0);
-    transition: transform 0.5s var(--transition-smooth);
-}
-
-.tab-button.active {
-    color: var(--primary-text-color);
-}
-
-.tab-button.active::after {
-    transform: scaleX(1);
-}
-
-.tab-content {
-    display: none;
-    animation: fadeIn 0.8s var(--transition-smooth);
-}
-
-.tab-content.active {
-    display: block;
-}
-
-.tab-content p {
+/* ABOUT SECTION & SKILLS */
+.about-text p {
     max-width: 750px;
     margin-bottom: 1.5rem;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* SKILLS */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    margin-top: 3rem;
 }
 
 .skill-card {
@@ -319,28 +258,43 @@ a:hover {
     box-shadow: 0 20px 40px var(--accent-glow);
 }
 
-.project-card-image-placeholder {
+.project-card-image {
     height: 250px;
-    display: grid;
-    place-items: center;
+    position: relative;
     background-color: var(--border-color);
-    transition: background-color 0.5s var(--transition-smooth);
 }
 
-.project-card-image-placeholder h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--secondary-text-color);
+.project-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s var(--transition-smooth);
+}
+
+.project-card-image img.active {
+    opacity: 1;
 }
 
 .project-card-content {
     padding: 1.5rem;
 }
 
+.project-card-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    margin-bottom: 0.5rem;
+}
+
 .project-card-content p {
     color: var(--secondary-text-color);
     font-size: 0.95rem;
 }
+
 
 /* FOOTER */
 .main-footer {
@@ -436,16 +390,6 @@ a:hover {
     .project-section,
     .main-footer {
         padding: 4rem 0;
-    }
-
-    /* Merapikan navigasi tab */
-    .tab-nav {
-        gap: 0.5rem;
-    }
-
-    .tab-button {
-        padding: 0.8rem 0;
-        font-size: 0.9rem;
     }
 
     /* Merapikan footer */

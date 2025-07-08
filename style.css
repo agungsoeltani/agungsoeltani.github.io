@@ -1,0 +1,482 @@
+/* --- FONT & PENGATURAN DASAR --- */
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
+
+:root {
+    /* TEMA LIGHT MODE */
+    --bg-color: #f8f8fa;
+    --surface-color: rgba(255, 255, 255, 0.7);
+    --primary-text-color: #1a1a1a;
+    --secondary-text-color: #5a5a6a;
+    --border-color: rgba(200, 200, 210, 0.4);
+    --accent-color: #A374FF;
+    --accent-glow: rgba(163, 116, 255, 0.15);
+    --transition-smooth: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body.dark-mode {
+    /* TEMA DARK MODE */
+    --bg-color: #101015;
+    --surface-color: rgba(26, 26, 34, 0.7);
+    --primary-text-color: #e5e5e5;
+    --secondary-text-color: #88889a;
+    --border-color: rgba(60, 60, 70, 0.5);
+    --accent-color: #B388FF;
+    --accent-glow: rgba(179, 136, 255, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    transition: background-color 0.5s var(--transition-smooth), color 0.5s var(--transition-smooth);
+    overflow-x: hidden;
+}
+
+/* STRUKTUR UTAMA */
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.section-container {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+/* HEADER */
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1.5rem 0;
+    background-color: var(--surface-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.5s var(--transition-smooth), border-color 0.5s var(--transition-smooth);
+}
+
+.header-content {
+    /* PERBAIKAN: Menambahkan padding agar tidak mepet di semua layar */
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.main-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    transition: color 0.4s var(--transition-smooth);
+}
+
+a:hover {
+    color: var(--primary-text-color);
+}
+
+.theme-switcher {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--secondary-text-color);
+}
+
+.theme-switcher svg {
+    fill: currentColor;
+    transition: color 0.4s var(--transition-smooth);
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    height: 80vh;
+    min-height: 500px;
+}
+
+.hero-intro {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.hero-title {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    max-width: 550px;
+    margin-top: 1.5rem;
+    color: var(--secondary-text-color);
+    line-height: 1.8;
+}
+
+.btn-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s var(--transition-smooth);
+}
+
+.btn-cv:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+.btn-cv svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+}
+
+
+/* RITME SPASI */
+.about-section,
+.project-section,
+.main-footer {
+    padding: 6rem 0;
+}
+
+/* ABOUT SECTION & TABS */
+.tab-nav {
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2.5rem;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1rem 0;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--secondary-text-color);
+    position: relative;
+    transition: color 0.4s var(--transition-smooth);
+}
+
+.tab-button::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transition: transform 0.5s var(--transition-smooth);
+}
+
+.tab-button.active {
+    color: var(--primary-text-color);
+}
+
+.tab-button.active::after {
+    transform: scaleX(1);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.8s var(--transition-smooth);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content p {
+    max-width: 750px;
+    margin-bottom: 1.5rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* SKILLS */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background-color: var(--surface-color);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: left;
+    transition: all 0.5s var(--transition-smooth);
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--accent-glow);
+}
+
+.skill-card-icon {
+    margin-bottom: 1.5rem;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--accent-glow), transparent);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.skill-card-icon svg {
+    stroke: var(--accent-color);
+}
+
+.skill-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.skill-card p {
+    color: var(--secondary-text-color);
+    font-size: 0.95rem;
+}
+
+/* PROJECT SECTION */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.project-card {
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    transition: all 0.5s var(--transition-smooth);
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--accent-glow);
+}
+
+.project-card-image-placeholder {
+    height: 250px;
+    display: grid;
+    place-items: center;
+    background-color: var(--border-color);
+    transition: background-color 0.5s var(--transition-smooth);
+}
+
+.project-card-image-placeholder h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-text-color);
+}
+
+.project-card-content {
+    padding: 1.5rem;
+}
+
+.project-card-content p {
+    color: var(--secondary-text-color);
+    font-size: 0.95rem;
+}
+
+/* FOOTER */
+.main-footer {
+    text-align: left;
+}
+
+.main-footer .section-title {
+    text-align: left;
+}
+
+.main-footer p {
+    max-width: 600px;
+    margin-bottom: 2rem;
+    color: var(--secondary-text-color);
+}
+
+.contact-button {
+    display: inline-block;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.4s var(--transition-smooth);
+    border: none;
+}
+
+.contact-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+.footer-bottom {
+    margin-top: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+
+/* ---------------------------------- */
+/* --- PENINGKATAN UNTUK MOBILE --- */
+/* ---------------------------------- */
+
+@media (max-width: 768px) {
+    /* Mengurangi spasi agar lebih pas di layar kecil */
+    .section-container, .header-content {
+        padding: 0 1.5rem;
+    }
+
+    /* Mengatur ulang layout grid menjadi satu kolom */
+    .skills-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-grid {
+        gap: 1.5rem;
+    }
+
+    /* Menyesuaikan ukuran teks agar tidak terlalu besar */
+    .hero-title {
+        font-size: 3rem; /* Ukuran tetap yang lebih kecil untuk mobile */
+    }
+
+    .hero-tagline, .hero-intro {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1rem;
+    }
+
+    /* Mengurangi tinggi hero section */
+    .hero {
+        height: auto;
+        padding: 6rem 0;
+    }
+    
+    /* Mengurangi spasi antar section di mobile */
+    .about-section,
+    .project-section,
+    .main-footer {
+        padding: 4rem 0;
+    }
+
+    /* Merapikan navigasi tab */
+    .tab-nav {
+        gap: 0.5rem;
+    }
+
+    .tab-button {
+        padding: 0.8rem 0;
+        font-size: 0.9rem;
+    }
+
+    /* Merapikan footer */
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .main-footer {
+        text-align: center;
+    }
+
+    .main-footer .section-title,
+    .main-footer p {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Penyesuaian untuk layar yang sangat kecil */
+    .main-nav {
+        /* Menghilangkan navigasi agar tidak tumpang tindih dengan logo dan tombol mode */
+        display: none;
+    }
+    
+    .project-card-content {
+        padding: 1rem;
+    }
+    
+    .skill-card {
+        padding: 1.5rem;
+    }
+}

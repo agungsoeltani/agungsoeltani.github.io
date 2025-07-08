@@ -93,6 +93,37 @@ body {
     font-weight: 700;
 }
 
+/* KODE BARU UNTUK WIDGET CUACA */
+#weather-widget {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--secondary-text-color);
+    min-height: 24px; /* Samakan tinggi dengan tombol theme-switcher */
+    min-width: 150px; /* Lebar minimum agar layout stabil */
+}
+
+#weather-widget .weather-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#weather-widget img {
+    width: 28px;
+    height: 28px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/* AKHIR DARI KODE BARU */
+
+
 .main-nav {
     display: flex;
     gap: 2rem;
@@ -413,6 +444,11 @@ a:hover {
     /* Penyesuaian untuk layar yang sangat kecil */
     .main-nav {
         /* Menghilangkan navigasi agar tidak tumpang tindih dengan logo dan tombol mode */
+        display: none;
+    }
+    
+    /* Sembunyikan widget cuaca juga di layar sangat kecil */
+    #weather-widget {
         display: none;
     }
     

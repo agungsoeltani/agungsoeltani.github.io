@@ -83,50 +83,59 @@ body {
     max-width: 1024px;
     margin: 0 auto;
     padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-}
 
-/* KODE BARU UNTUK WIDGET CUACA */
+/* KODE WIDGET CUACA YANG DIPERBAIKI */
 #weather-widget {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--secondary-text-color);
-    min-height: 24px; /* Samakan tinggi dengan tombol theme-switcher */
-    min-width: 150px; /* Lebar minimum agar layout stabil */
+    justify-self: start;
 }
 
 #weather-widget .weather-content {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: center; /* Kunci utama untuk alignment vertikal */
+    gap: 8px;
     animation: fadeIn 0.5s ease-in-out;
 }
 
-#weather-widget img {
-    width: 28px;
-    height: 28px;
+#weather-widget .weather-icon {
+    display: flex; /* Memastikan SVG di dalamnya juga terpusat */
+    align-items: center;
+}
+
+#weather-widget .weather-text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--secondary-text-color);
+}
+
+#weather-widget .weather-icon svg {
+    stroke: var(--accent-color);
+    transition: stroke 0.5s var(--transition-smooth);
+    width: 24px; /* Sedikit disesuaikan agar pas */
+    height: 24px;
+}
+
+#weather-widget strong {
+    color: var(--primary-text-color);
+    font-weight: 700;
 }
 
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-/* AKHIR DARI KODE BARU */
+/* AKHIR DARI MODIFIKASI WIDGET CUACA */
 
 
 .main-nav {
     display: flex;
     gap: 2rem;
+    justify-self: center;
 }
 
 a {
@@ -144,6 +153,7 @@ a:hover {
     border: none;
     cursor: pointer;
     color: var(--secondary-text-color);
+    justify-self: end;
 }
 
 .theme-switcher svg {
@@ -437,6 +447,12 @@ a:hover {
     .main-footer .section-title,
     .main-footer p {
         text-align: center;
+    }
+
+    /* Perbaikan navbar mobile agar lebih rapi */
+    .header-content {
+        display: flex;
+        justify-content: space-between;
     }
 }
 

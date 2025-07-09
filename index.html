@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- KODE BARU: Link untuk favicon yang akan kita update secara dinamis -->
     <link id="favicon" rel="icon" href="">
     <title>Agung Soeltani</title>
     <link rel="stylesheet" href="style.css">
-    <!-- KODE BARU: Memuat library Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <div class="cursor-dot"></div>
@@ -151,12 +149,13 @@
         <footer id="contact" class="main-footer">
             <div class="section-container">
                 <h2 class="section-title">Let's Connect</h2>
-                <p>I love talking about new ideas. Feel free to reach out and let's make things happen.
+                <p>I love talking about new ideas. Feel free to reach out and let's make things happen.</p>
                 
                 <div class="contact-layout">
 
                     <div class="contact-form-wrapper">
-                        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                        <!-- PERUBAHAN: action dan method dihapus, id ditambahkan -->
+                        <form id="contact-form" class="contact-form">
                             <input type="hidden" name="access_key" value="7e18441f-699a-46b0-ba04-66122f1bb234">
                             <div class="form-grid">
                                 <div class="form-group">
@@ -191,7 +190,7 @@
                                 </div>
                             </div>
                             <div class="discord-activity" id="discord-activity">
-                                <!-- Konten aktivitas (misal: Spotify) akan diisi oleh JS -->
+                                <!-- Konten aktivitas akan diisi oleh JS -->
                             </div>
                         </div>
                     </div>
@@ -214,10 +213,17 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-down"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-up"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
     </a>
+    
+    <!-- KODE BARU: Elemen untuk Message Box / Toast Notification -->
+    <div id="toast-notification" class="toast-notification">
+        <div class="toast-icon"></div>
+        <p class="toast-message"></p>
+    </div>
+
     <script src="script.js"></script>
     <div class="cookie-consent-banner" id="cookie-banner">
     <p class="cookie-text">
-       We use cookies to ensure the site works properly and to remember your settings. By using this site, you agree to our use of cookies.</p>
+        We use cookies to ensure the site works properly and to remember your settings. By using this site, you agree to our use of cookies.</p>
     <div class="cookie-buttons">
         <button id="cookie-accept" class="btn-cookie">Accept</button>
         <button id="cookie-decline" class="btn-cookie btn-cookie-secondary">Decline</button>

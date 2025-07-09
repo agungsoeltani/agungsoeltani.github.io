@@ -127,6 +127,37 @@ body {
     align-items: center;
 }
 
+/* --- KODE PROMO BANNER DENGAN ANIMASI --- */
+.promo-banner {
+    /* Gradien ungu yang akan kita animasikan */
+    background: linear-gradient(
+        -45deg, 
+        var(--accent-color), 
+        #8A2BE2, 
+        #c5a8ff, 
+        var(--accent-color)
+    );
+    background-size: 400% 400%; /* Ukuran background dibuat lebih besar untuk digerakkan */
+    color: white;
+    padding: 0.75rem 0;
+    text-align: center;
+    font-weight: 500;
+    animation: shimmer 15s ease infinite; /* Terapkan animasi */
+}
+
+.promo-banner p {
+    margin: 0;
+}
+
+.promo-banner .promo-link {
+    color: white;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Override untuk dark mode tidak diperlukan jika warnanya sudah bagus */
+
 /* KODE BARU UNTUK PARTICLE CANVAS BACKGROUND */
 #particle-canvas {
     position: fixed;
@@ -616,7 +647,6 @@ body.dark-mode .btn-cookie-secondary {
     .main-footer p {
         text-align: center;
     }
-    
     .cursor-dot,
     .cursor-outline {
         display: none;
@@ -647,5 +677,18 @@ body.dark-mode .btn-cookie-secondary {
     
     .skill-card {
         padding: 1.5rem;
+    }
+}
+
+/* --- Keyframes untuk animasi shimmer --- */
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }

@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- KODE BARU: Link untuk favicon yang akan kita update secara dinamis -->
+    <link id="favicon" rel="icon" href="">
     <title>Agung Soeltani</title>
     <link rel="stylesheet" href="style.css">
+    <!-- KODE BARU: Memuat library Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <div class="cursor-dot"></div>
 <div class="cursor-outline"></div>
@@ -144,72 +148,66 @@
             </section>
         </main>
 
-<footer id="contact" class="main-footer">
-    <div class="section-container">
-        <h2 class="section-title">Let's Connect</h2>
-        <p>Saya selalu tertarik untuk berdiskusi tentang proyek inovatif di bidang jaringan dan IoT. Mari wujudkan ide bersama.</p>
-        
-        <!-- KODE BARU: Wrapper untuk layout kontak -->
-        <div class="contact-layout">
+        <footer id="contact" class="main-footer">
+            <div class="section-container">
+                <h2 class="section-title">Let's Connect</h2>
+                <p>Saya selalu tertarik untuk berdiskusi tentang proyek inovatif di bidang jaringan dan IoT. Mari wujudkan ide bersama.</p>
+                
+                <div class="contact-layout">
 
-            <!-- Kolom Formulir Kontak -->
-            <div class="contact-form-wrapper">
-                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-                    <input type="hidden" name="access_key" value="7e18441f-699a-46b0-ba04-66122f1bb234">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Tell me your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Tell me something cool" required></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <button type="submit" class="contact-button">Kirim Pesan</button>
-                        </div>
+                    <div class="contact-form-wrapper">
+                        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                            <input type="hidden" name="access_key" value="7e18441f-699a-46b0-ba04-66122f1bb234">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" placeholder="Tell me your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" rows="5" placeholder="Tell me something cool" required></textarea>
+                                </div>
+                                <div class="form-group full-width">
+                                    <button type="submit" class="contact-button">Kirim Pesan</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div>
 
-            <!-- KODE BARU: Kolom Discord Presence -->
-            <div class="discord-presence-wrapper">
-                <div class="discord-presence-card" id="lanyard-card">
-                    <div class="discord-card-header">
-                        <div class="discord-avatar-wrapper">
-                            <img src="https://placehold.co/80x80/101015/88889a?text=?" alt="Discord Avatar" id="discord-avatar" class="discord-avatar">
-                            <div class="discord-status-indicator" id="discord-status-indicator"></div>
-                        </div>
-                        <div class="discord-user-info">
-                            <h3 id="discord-username">Loading...</h3>
-                            <p id="discord-status">Connecting to Discord</p>
+                    <div class="discord-presence-wrapper">
+                        <div class="discord-presence-card" id="lanyard-card">
+                            <div class="discord-card-header">
+                                <div class="discord-avatar-wrapper">
+                                    <img src="https://placehold.co/80x80/101015/88889a?text=?" alt="Discord Avatar" id="discord-avatar" class="discord-avatar">
+                                    <div class="discord-status-indicator" id="discord-status-indicator"></div>
+                                </div>
+                                <div class="discord-user-info">
+                                    <h3 id="discord-username">Loading...</h3>
+                                    <p id="discord-status">Connecting to Discord</p>
+                                </div>
+                            </div>
+                            <div class="discord-activity" id="discord-activity">
+                                <!-- Konten aktivitas (misal: Spotify) akan diisi oleh JS -->
+                            </div>
                         </div>
                     </div>
-                    <div class="discord-activity" id="discord-activity">
-                        <!-- Konten aktivitas (misal: Spotify) akan diisi oleh JS -->
+
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="footer-links">
+                        <a href="https://www.linkedin.com/in/agungsoeltani/">LinkedIn</a>
+                        <a href="https://www.github.com/agungsoeltani">GitHub</a>
+                        <a href="https://www.instagram.com/agungxsoeltani">Instagram</a>
                     </div>
+                    <p>&copy; 2025 Agung Soeltani</p>
                 </div>
             </div>
-
-        </div>
-        <!-- AKHIR DARI Wrapper layout kontak -->
-
-        <div class="footer-bottom">
-            <div class="footer-links">
-                <a href="https://www.linkedin.com/in/agungsoeltani/">LinkedIn</a>
-                <a href="https://www.github.com/agungsoeltani">GitHub</a>
-                <a href="https://www.instagram.com/agungxsoeltani">Instagram</a>
-            </div>
-            <p>&copy; 2025 Agung Soeltani</p>
-        </div>
-    </div>
-</footer>
-
-<!-- ▲▲▲ BATAS AKHIR KODE PENGGANTI FOOTER ▲▲▲ -->
+        </footer>
 
     </div>
     <a href="#about" class="scroll-indicator" id="scroll-arrow">
@@ -219,7 +217,7 @@
     <script src="script.js"></script>
     <div class="cookie-consent-banner" id="cookie-banner">
     <p class="cookie-text">
-      We use cookies to ensure the site works properly and to remember your settings. By using this site, you agree to our use of cookies.</p>
+       We use cookies to ensure the site works properly and to remember your settings. By using this site, you agree to our use of cookies.</p>
     <div class="cookie-buttons">
         <button id="cookie-accept" class="btn-cookie">Accept</button>
         <button id="cookie-decline" class="btn-cookie btn-cookie-secondary">Decline</button>

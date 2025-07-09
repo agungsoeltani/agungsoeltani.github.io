@@ -286,7 +286,128 @@ document.addEventListener('DOMContentLoaded', () => {
         '50d': '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>',
         '50n': '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>',
     };
+// Taruh variabel ini di luar fungsi agar bisa diakses dan dibersihkan
+let activityInterval = null;
 
+// Helper function untuk memformat durasi dari milidetik menjadi HH:MM:SS
+function formatDuration(ms) {
+    if (!ms) return '';
+    const totalSeconds = Math.floor((Date.now() - ms) / 1000);
+    
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    // Fungsi kecil untuk menambahkan '0' di depan angka jika kurang dari 10
+    const pad = (num) => num.toString().padStart(2, '0');
+
+    if (hours > 0) {
+        return `${pad(hours)}:${pad(minutes)}:${pad(seconds)} elapsed`;
+    }
+    return `${pad(minutes)}:${pad(seconds)} elapsed`;
+}
+
+
+// --- FUNGSI UNTUK MENGAMBIL DATA DISCORD DARI LANYARD (VERSI LENGKAP) ---
+async function fetchDiscordPresence() {
+    const discordUserId = '438025232150822914';
+    const card = document.getElementById('lanyard-card');
+
+    // Hentikan interval sebelumnya agar tidak ada timer ganda yang berjalan
+    if (activityInterval) {
+        clearInterval(activityInterval);
+    }
+
+    try {
+        const response = await fetch(`https://api.lanyard.rest/v1/users/${discordUserId}`);
+        if (!response.ok) {
+            throw new Error('Gagal mengambil data Lanyard');
+        }
+        const { data } = await response.json();
+
+        // Ambil elemen-elemen dari HTML
+        const avatarEl = document.getElementById('discord-avatar');
+        const usernameEl = document.getElementById('discord-username');
+        const statusTextEl = document.getElementById('discord-status');
+        const statusIndicatorEl = document.getElementById('discord-status-indicator');
+        const activityEl = document.getElementById('discord-activity');
+
+        // Update info dasar
+        avatarEl.src = `https://cdn.discordapp.com/avatars/${data.discord_user.id}/${data.discord_user.avatar}.png`;
+        usernameEl.textContent = data.discord_user.username;
+        
+        // Update status (online, idle, dnd, offline)
+        statusIndicatorEl.className = 'discord-status-indicator'; // Reset class
+        statusIndicatorEl.classList.add(data.discord_status);
+        statusTextEl.textContent = data.discord_status.charAt(0).toUpperCase() + data.discord_status.slice(1);
+
+        // --- LOGIKA AKTIVITAS YANG DIPERBARUI DENGAN LEBIH BANYAK DETAIL ---
+        
+        let gameActivity = data.activities.find(activity => activity.type === 0); 
+        let spotifyActivity = data.activities.find(activity => activity.name === 'Spotify');
+
+        if (gameActivity) {
+            activityEl.classList.add('visible');
+            
+            // Mengambil semua detail yang mungkin ada
+            let details = gameActivity.details ? `<p class="activity-artist">${gameActivity.details}</p>` : '';
+            let state = gameActivity.state ? `<p class="activity-artist">${gameActivity.state}</p>` : '';
+            
+            activityEl.innerHTML = `
+                <img src="https://cdn.discordapp.com/app-assets/${gameActivity.application_id}/${gameActivity.assets.large_image}.png" alt="Game Art" class="activity-album-art" onerror="this.style.display='none'">
+                <div class="activity-details">
+                    <p class="activity-song">Playing ${gameActivity.name}</p>
+                    ${details}
+                    ${state}
+                    <p class="activity-artist" id="activity-timer"></p>
+                </div>
+            `;
+            statusTextEl.textContent = "Playing a Game";
+
+            // Jika ada timestamp, mulai timer
+            if (gameActivity.timestamps && gameActivity.timestamps.start) {
+                const timerEl = document.getElementById('activity-timer');
+                // Langsung tampilkan waktu pertama kali
+                timerEl.textContent = formatDuration(gameActivity.timestamps.start);
+                // Set interval untuk update setiap detik
+                activityInterval = setInterval(() => {
+                    timerEl.textContent = formatDuration(gameActivity.timestamps.start);
+                }, 1000);
+            }
+
+        } else if (spotifyActivity) {
+            activityEl.classList.add('visible');
+            activityEl.innerHTML = `
+                <img src="${spotifyActivity.assets.large_image_url}" alt="Album Art" class="activity-album-art">
+                <div class="activity-details">
+                    <p class="activity-song">${spotifyActivity.details}</p>
+                    <p class="activity-artist">by ${spotifyActivity.state}</p>
+                    <p class="activity-artist" id="activity-timer"></p>
+                </div>
+            `;
+            statusTextEl.textContent = "Listening to Spotify";
+            
+            // Timer untuk Spotify juga
+            if (spotifyActivity.timestamps && spotifyActivity.timestamps.start) {
+                const timerEl = document.getElementById('activity-timer');
+                timerEl.textContent = formatDuration(spotifyActivity.timestamps.start);
+                activityInterval = setInterval(() => {
+                    timerEl.textContent = formatDuration(spotifyActivity.timestamps.start);
+                }, 1000);
+            }
+
+        } else {
+            activityEl.classList.remove('visible');
+            activityEl.innerHTML = '';
+        }
+
+    } catch (error) {
+        console.error('Error fetching Discord presence:', error);
+        card.innerHTML = `<p style="color: var(--secondary-text-color);">Gagal memuat status Discord.</p>`;
+    }
+}
+
+// ▲▲▲ AKHIR DARI KODE BARU ▲▲▲
     async function getWeatherCarousel() {
         const widget = document.getElementById('weather-widget');
         if (!widget) return;
@@ -342,6 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    fetchDiscordPresence();
     getWeatherCarousel();
 
 });

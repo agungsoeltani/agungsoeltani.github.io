@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://agungsoeltani.web.id/sitemap.xml

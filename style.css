@@ -89,21 +89,24 @@ body {
 }
 
 
-/* KODE WIDGET CUACA YANG DIPERBAIKI */
+/* KODE WIDGET CUACA DENGAN TRANSISI SMOOTH */
 #weather-widget {
     display: flex;
     justify-self: start;
+    min-height: 28px; /* Pastikan tinggi konsisten */
+    min-width: 150px;
 }
 
 #weather-widget .weather-content {
     display: flex;
-    align-items: center; /* Kunci utama untuk alignment vertikal */
+    align-items: center;
     gap: 8px;
-    animation: fadeIn 0.5s ease-in-out;
+    opacity: 1; /* Opacity awal */
+    transition: opacity 0.4s ease-in-out; /* INI KUNCI TRANSISINYA */
 }
 
 #weather-widget .weather-icon {
-    display: flex; /* Memastikan SVG di dalamnya juga terpusat */
+    display: flex;
     align-items: center;
 }
 
@@ -116,18 +119,13 @@ body {
 #weather-widget .weather-icon svg {
     stroke: var(--accent-color);
     transition: stroke 0.5s var(--transition-smooth);
-    width: 24px; /* Sedikit disesuaikan agar pas */
+    width: 24px;
     height: 24px;
 }
 
 #weather-widget strong {
     color: var(--primary-text-color);
     font-weight: 700;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 /* AKHIR DARI MODIFIKASI WIDGET CUACA */
 
@@ -393,8 +391,14 @@ a:hover {
 
 @media (max-width: 768px) {
     /* Mengurangi spasi agar lebih pas di layar kecil */
-    .section-container, .header-content {
+    .section-container {
         padding: 0 1.5rem;
+    }
+
+    /* Di layar tablet, navbar masih 3 kolom */
+    .header-content {
+        padding: 0 1.5rem;
+        grid-template-columns: 1fr auto 1fr;
     }
 
     /* Mengatur ulang layout grid menjadi satu kolom */
@@ -448,25 +452,27 @@ a:hover {
     .main-footer p {
         text-align: center;
     }
-
-    /* Perbaikan navbar mobile agar lebih rapi */
-    .header-content {
-        display: flex;
-        justify-content: space-between;
-    }
 }
 
-@media (max-width: 480px) {
-    /* Penyesuaian untuk layar yang sangat kecil */
+/* --- PERUBAHAN UTAMA UNTUK MOBILE KECIL --- */
+@media (max-width: 600px) { /* Diubah dari 480px agar lebih aman */
+
+    /* Tata letak navbar diubah menjadi 2 kolom */
+    .header-content {
+        display: flex; /* Kembali ke flexbox */
+        justify-content: space-between; /* Mendorong item ke ujung */
+    }
+
     .main-nav {
-        /* Menghilangkan navigasi agar tidak tumpang tindih dengan logo dan tombol mode */
+        /* Navigasi tengah dihilangkan */
         display: none;
     }
-    
-    /* Sembunyikan widget cuaca juga di layar sangat kecil */
+
+    /* Bagian ini dihapus agar widget cuaca tetap tampil
     #weather-widget {
         display: none;
     }
+    */
     
     .project-card-content {
         padding: 1rem;

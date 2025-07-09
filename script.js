@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- LOGIKA LIGHT/DARK MODE YANG SIMPEL DAN CEPAT ---
+    // --- LOGIKA LIGHT/DARK MODE (TETAP SAMA) ---
     const themeToggleButton = document.getElementById('theme-toggle');
     const body = document.body;
 
@@ -18,8 +18,231 @@ document.addEventListener('DOMContentLoaded', () => {
         const newTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
         localStorage.setItem('theme', newTheme);
     });
+    
+    // --- KODE BARU: LOGIKA UNTUK COOKIE CONSENT ---
+    const cookieBanner = document.getElementById('cookie-banner');
+    const cookieAcceptBtn = document.getElementById('cookie-accept');
+    const cookieDeclineBtn = document.getElementById('cookie-decline');
+    
+    const cookieConsent = localStorage.getItem('cookie_consent');
 
-    // --- LOGIKA SLIDESHOW GAMBAR PROYEK ---
+    if (!cookieConsent) {
+        setTimeout(() => {
+            cookieBanner.classList.add('active');
+        }, 1000);
+    }
+
+    cookieAcceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookie_consent', 'accepted');
+        cookieBanner.classList.remove('active');
+    });
+
+    cookieDeclineBtn.addEventListener('click', () => {
+        localStorage.setItem('cookie_consent', 'declined');
+        cookieBanner.classList.remove('active');
+    });
+
+    
+    // --- LOGIKA CUSTOM CURSOR BARU YANG LEBIH BAIK ---
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-outline');
+
+    window.addEventListener('mousemove', e => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+
+        // requestAnimationFrame membuat animasi lebih mulus
+        requestAnimationFrame(() => {
+            cursorOutline.style.left = `${posX}px`;
+            cursorOutline.style.top = `${posY}px`;
+        });
+    });
+
+    // Menambahkan efek hover pada elemen yang bisa diklik
+    const interactiveElements = document.querySelectorAll(
+        'a, button, .project-card, .skill-card, .theme-switcher, .scroll-indicator'
+    );
+
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursorDot.classList.add('hover');
+            cursorOutline.classList.add('hover');
+        });
+        el.addEventListener('mouseleave', () => {
+            cursorDot.classList.remove('hover');
+            cursorOutline.classList.remove('hover');
+        });
+    });
+    // --- AKHIR DARI LOGIKA CUSTOM CURSOR BARU ---
+
+
+    // --- LOGIKA BARU: ANIMASI DOTS BACKGROUND (TETAP SAMA) ---
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particlesArray;
+
+    let mouse = {
+        x: null,
+        y: null,
+        radius: 150
+    };
+
+    window.addEventListener('mousemove', (event) => {
+        mouse.x = event.x;
+        mouse.y = event.y;
+    });
+    
+    window.addEventListener('scroll', () => {
+        mouse.y = window.scrollY + 50; 
+    });
+
+
+    class Particle {
+        constructor(x, y, directionX, directionY, size, color) {
+            this.x = x;
+            this.y = y;
+            this.directionX = directionX;
+            this.directionY = directionY;
+            this.size = size;
+            this.color = color;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+
+        update() {
+            if (this.x > canvas.width || this.x < 0) {
+                this.directionX = -this.directionX;
+            }
+            if (this.y > canvas.height || this.y < 0) {
+                this.directionY = -this.directionY;
+            }
+
+            let dx = mouse.x - this.x;
+            let dy = mouse.y - this.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < mouse.radius + this.size) {
+                if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
+                    this.x += 5;
+                }
+                if (mouse.x > this.x && this.x > this.size * 10) {
+                    this.x -= 5;
+                }
+                if (mouse.y < this.y && this.y < canvas.height - this.size * 10) {
+                    this.y += 5;
+                }
+                if (mouse.y > this.y && this.y > this.size * 10) {
+                    this.y -= 5;
+                }
+            }
+
+            this.x += this.directionX;
+            this.y += this.directionY;
+            this.draw();
+        }
+    }
+
+    function init() {
+        particlesArray = [];
+        let numberOfParticles = (canvas.height * canvas.width) / 9000;
+        let particleColor = body.classList.contains('dark-mode') ? 'rgba(179, 136, 255, 0.5)' : 'rgba(163, 116, 255, 0.5)';
+
+        for (let i = 0; i < numberOfParticles; i++) {
+            let size = (Math.random() * 2) + 1;
+            let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+            let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+            let directionX = (Math.random() * .4) - .2;
+            let directionY = (Math.random() * .4) - .2;
+            particlesArray.push(new Particle(x, y, directionX, directionY, size, particleColor));
+        }
+    }
+
+    function connect() {
+        let opacityValue = 1;
+        let lineColor = body.classList.contains('dark-mode') ? 'rgba(179, 136, 255, 0.1)' : 'rgba(163, 116, 255, 0.1)';
+
+        for (let a = 0; a < particlesArray.length; a++) {
+            for (let b = a; b < particlesArray.length; b++) {
+                let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) +
+                               ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                    opacityValue = 1 - (distance / 20000);
+                    ctx.strokeStyle = lineColor.replace('0.1', opacityValue);
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+    
+    function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+        }
+        connect();
+    }
+
+    window.addEventListener('resize', () => {
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+        mouse.radius = (canvas.height / 80) * (canvas.width / 80);
+        init();
+    });
+    
+    themeToggleButton.addEventListener('click', init);
+
+    init();
+    animate();
+
+
+    // --- LOGIKA SCROLL INDICATOR (TETAP SAMA) ---
+    const scrollArrow = document.getElementById('scroll-arrow');
+    const arrowUp = scrollArrow.querySelector('.arrow-up');
+    const arrowDown = scrollArrow.querySelector('.arrow-down');
+
+    function handleScroll() {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const fullHeight = document.documentElement.scrollHeight;
+
+        if (scrollPosition < 50) {
+            scrollArrow.classList.add('visible');
+            arrowDown.style.display = 'block';
+            arrowUp.style.display = 'none';
+            scrollArrow.href = '#about';
+        } 
+        else if (scrollPosition + windowHeight >= fullHeight - 50) {
+            scrollArrow.classList.add('visible');
+            arrowDown.style.display = 'none';
+            arrowUp.style.display = 'block';
+            scrollArrow.href = '#';
+        } 
+        else {
+            scrollArrow.classList.remove('visible');
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    // --- LOGIKA SLIDESHOW GAMBAR PROYEK (TETAP SAMA) ---
     const projectCards = document.querySelectorAll('.project-card');
 
     projectCards.forEach(card => {
@@ -45,8 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- KODE BARU: LOGIKA WIDGET CUACA DENGAN TRANSISI SMOOTH ---
-
+    // --- KODE WIDGET CUACA (TETAP SAMA) ---
     const weatherIconMap = {
         '01d': '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>',
         '01n': '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>',
@@ -86,45 +308,36 @@ document.addEventListener('DOMContentLoaded', () => {
             let currentIndex = 0;
 
             function updateWeather() {
-                const currentCity = weatherData[currentIndex];
-                const iconCode = currentCity.icon;
-                let mappedIconCode = iconCode.slice(0, -1) + 'd';
-                if (iconCode === '01n') mappedIconCode = '01n';
-                
-                const iconSvg = weatherIconMap[mappedIconCode] || weatherIconMap['01d'];
+                const contentWrapper = widget.querySelector('.weather-content');
 
-                // Buat elemen baru untuk konten, tapi jangan langsung ditampilkan
-                const newContent = document.createElement('div');
-                newContent.classList.add('weather-content');
-                newContent.style.opacity = '0'; // Mulai dengan transparan
-                newContent.innerHTML = `
-                    <div class="weather-icon">${iconSvg}</div>
-                    <span class="weather-text">${currentCity.kota} <strong>${currentCity.suhu}°C</strong></span>
-                `;
+                const changeContent = () => {
+                    const currentCity = weatherData[currentIndex];
+                    const iconCode = currentCity.icon;
+                    let mappedIconCode = iconCode.slice(0, -1) + 'd';
+                    if (iconCode === '01n') mappedIconCode = '01n';
+                    
+                    const iconSvg = weatherIconMap[mappedIconCode] || weatherIconMap['01d'];
 
-                // Hapus konten lama jika ada
-                const oldContent = widget.querySelector('.weather-content');
-                if (oldContent) {
-                    oldContent.style.opacity = '0'; // Mulai fade-out
-                    // Tunggu animasi fade-out selesai sebelum mengganti
-                    setTimeout(() => {
-                        widget.innerHTML = ''; // Kosongkan widget
-                        widget.appendChild(newContent);
-                        // Paksa browser render, lalu mulai fade-in
-                        setTimeout(() => newContent.style.opacity = '1', 20);
-                    }, 400); // Durasi harus cocok dengan transisi CSS
+                    widget.innerHTML = `
+                        <div class="weather-content">
+                            <div class="weather-icon">${iconSvg}</div>
+                            <span class="weather-text">${currentCity.kota} <strong>${currentCity.suhu}°C</strong></span>
+                        </div>
+                    `;
+                    
+                    currentIndex = (currentIndex + 1) % weatherData.length;
+                };
+
+                if (contentWrapper) {
+                    contentWrapper.classList.add('fade-out');
+                    setTimeout(changeContent, 400);
                 } else {
-                    // Jika ini pertama kali, langsung tampilkan
-                    widget.innerHTML = '';
-                    widget.appendChild(newContent);
-                    setTimeout(() => newContent.style.opacity = '1', 20);
+                    changeContent();
                 }
-                
-                currentIndex = (currentIndex + 1) % weatherData.length;
             }
 
-            updateWeather(); // Tampilkan pertama kali
-            setInterval(updateWeather, 6000); // Ganti kota setiap 6 detik
+            updateWeather();
+            setInterval(updateWeather, 6000);
         } catch (error) {
             console.error('Gagal memuat data cuaca:', error);
             widget.innerHTML = `<span style="font-size: 0.9em; color: var(--secondary-text-color);">Gagal memuat</span>`;
@@ -132,6 +345,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     getWeatherCarousel();
-    // --- AKHIR DARI KODE BARU ---
 
 });

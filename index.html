@@ -6,7 +6,11 @@
     <title>Agung Soeltani</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
 <body>
+    
+    <canvas id="particle-canvas"></canvas>
 
     <div class="content-wrapper">
         <header class="main-header">
@@ -151,7 +155,19 @@
             </div>
         </footer>
     </div>
-    
+    <a href="#about" class="scroll-indicator" id="scroll-arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-down"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-up"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+    </a>
     <script src="script.js"></script>
+    <div class="cookie-consent-banner" id="cookie-banner">
+    <p class="cookie-text">
+        Situs ini menggunakan beberapa cookies esensial untuk memastikan fungsi dasar dan mengingat preferensi tema Anda. Dengan melanjutkan, Anda menyetujui penggunaannya.
+    </p>
+    <div class="cookie-buttons">
+        <button id="cookie-accept" class="btn-cookie">Setuju</button>
+        <button id="cookie-decline" class="btn-cookie btn-cookie-secondary">Tolak</button>
+    </div>
+</div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- LOGIKA LIGHT/DARK MODE (TETAP SAMA) ---
+    // --- LOGIKA LIGHT/DARK MODE ---
     const themeToggleButton = document.getElementById('theme-toggle');
     const body = document.body;
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', newTheme);
     });
     
-    // --- KODE BARU: LOGIKA UNTUK COOKIE CONSENT ---
+    // --- LOGIKA UNTUK COOKIE CONSENT ---
     const cookieBanner = document.getElementById('cookie-banner');
     const cookieAcceptBtn = document.getElementById('cookie-accept');
     const cookieDeclineBtn = document.getElementById('cookie-decline');
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     
-    // --- LOGIKA CUSTOM CURSOR BARU YANG LEBIH BAIK ---
+    // --- LOGIKA CUSTOM CURSOR ---
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorOutline = document.querySelector('.cursor-outline');
 
@@ -54,16 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
         cursorDot.style.left = `${posX}px`;
         cursorDot.style.top = `${posY}px`;
 
-        // requestAnimationFrame membuat animasi lebih mulus
         requestAnimationFrame(() => {
             cursorOutline.style.left = `${posX}px`;
             cursorOutline.style.top = `${posY}px`;
         });
     });
 
-    // Menambahkan efek hover pada elemen yang bisa diklik
     const interactiveElements = document.querySelectorAll(
-        'a, button, .project-card, .skill-card, .theme-switcher, .scroll-indicator'
+        'a, button, .project-card, .skill-card, .theme-switcher, .scroll-indicator, input, textarea'
     );
 
     interactiveElements.forEach(el => {
@@ -76,10 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
             cursorOutline.classList.remove('hover');
         });
     });
-    // --- AKHIR DARI LOGIKA CUSTOM CURSOR BARU ---
 
 
-    // --- LOGIKA BARU: ANIMASI DOTS BACKGROUND (TETAP SAMA) ---
+    // --- LOGIKA ANIMASI PARTIKEL BACKGROUND ---
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
 
@@ -212,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animate();
 
 
-    // --- LOGIKA SCROLL INDICATOR (TETAP SAMA) ---
+    // --- LOGIKA SCROLL INDICATOR ---
     const scrollArrow = document.getElementById('scroll-arrow');
     const arrowUp = scrollArrow.querySelector('.arrow-up');
     const arrowDown = scrollArrow.querySelector('.arrow-down');
@@ -242,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
 
-    // --- LOGIKA SLIDESHOW GAMBAR PROYEK (TETAP SAMA) ---
+    // --- LOGIKA SLIDESHOW GAMBAR PROYEK ---
     const projectCards = document.querySelectorAll('.project-card');
 
     projectCards.forEach(card => {
@@ -268,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- KODE WIDGET CUACA (TETAP SAMA) ---
+    // --- KODE WIDGET CUACA ---
     const weatherIconMap = {
         '01d': '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>',
         '01n': '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>',
@@ -297,6 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
         widget.innerHTML = `<span style="font-size: 0.9em; color: var(--secondary-text-color);">Memuat...</span>`;
 
         try {
+            // Ganti URL ini dengan URL Netlify Function Anda yang sebenarnya
             const response = await fetch('https://agungsoeltani.netlify.app/.netlify/functions/cuaca'); 
             const weatherData = await response.json();
 

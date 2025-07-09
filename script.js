@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         widget.innerHTML = `<span style="font-size: 0.9em; color: var(--secondary-text-color);">Memuat...</span>`;
 
         try {
-            const response = await fetch('api/cuaca'); 
+            const response = await fetch('https://agungsoeltani.netlify.app/.netlify/functions/cuaca'); 
             const weatherData = await response.json();
 
             if (!weatherData || weatherData.length === 0) {

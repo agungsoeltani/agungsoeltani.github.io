@@ -1,1 +1,111 @@
-export function initThemeSwitcher(){var e;let t=document.getElementById("theme-toggle"),l=document.body;if(!t)return;let s=localStorage.getItem("theme"),o=window.matchMedia("(prefers-color-scheme: dark)").matches;e=s||(o?"dark":"light"),l.classList.toggle("dark-mode","dark"===e),t.addEventListener("click",()=>{l.classList.toggle("dark-mode");let e=l.classList.contains("dark-mode")?"dark":"light";localStorage.setItem("theme",e)})}export function initCookieConsent(){let e=document.getElementById("cookie-banner"),t=document.getElementById("cookie-accept"),l=document.getElementById("cookie-decline");if(!e||!t||!l)return;let s=localStorage.getItem("cookie_consent");s||setTimeout(()=>e.classList.add("active"),1e3),t.addEventListener("click",()=>{localStorage.setItem("cookie_consent","accepted"),e.classList.remove("active")}),l.addEventListener("click",()=>{localStorage.setItem("cookie_consent","declined"),e.classList.remove("active")})}export function initCustomCursor(){let e=document.querySelector(".cursor-dot"),t=document.querySelector(".cursor-outline");if(!e||!t)return;window.addEventListener("mousemove",l=>{let s=l.clientX,o=l.clientY;e.style.left=`${s}px`,e.style.top=`${o}px`,requestAnimationFrame(()=>{t.style.left=`${s}px`,t.style.top=`${o}px`})});let l=document.querySelectorAll("a, button, .work-item-card, .skill-card, .theme-switcher, .scroll-indicator, input, textarea");l.forEach(l=>{l.addEventListener("mouseenter",()=>{e.classList.add("hover"),t.classList.add("hover")}),l.addEventListener("mouseleave",()=>{e.classList.remove("hover"),t.classList.remove("hover")})})}export function initScrollIndicator(){let e=document.getElementById("scroll-arrow");if(!e)return;let t=e.querySelector(".arrow-up"),l=e.querySelector(".arrow-down");if(!t||!l)return;let s=()=>{let s=window.scrollY,o=window.innerHeight,r=document.documentElement.scrollHeight;s<50?(e.classList.add("visible"),l.style.display="block",t.style.display="none",e.href="#about"):s+o>=r-50?(e.classList.add("visible"),l.style.display="none",t.style.display="block",e.href="#"):e.classList.remove("visible")};window.addEventListener("scroll",s),s()}
+export function initThemeSwitcher() {
+    const themeToggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    if (!themeToggleButton) return;
+
+    const applyTheme = (theme) => {
+        body.classList.toggle('dark-mode', theme === 'dark');
+    };
+
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    applyTheme(savedTheme || (systemPrefersDark ? 'dark' : 'light'));
+
+    themeToggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const newTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+        localStorage.setItem('theme', newTheme);
+    });
+}
+
+// --- LOGIKA COOKIE CONSENT ---
+export function initCookieConsent() {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const cookieAcceptBtn = document.getElementById('cookie-accept');
+    const cookieDeclineBtn = document.getElementById('cookie-decline');
+
+    if (!cookieBanner || !cookieAcceptBtn || !cookieDeclineBtn) return;
+
+    const cookieConsent = localStorage.getItem('cookie_consent');
+    if (!cookieConsent) {
+        setTimeout(() => cookieBanner.classList.add('active'), 1000);
+    }
+
+    cookieAcceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookie_consent', 'accepted');
+        cookieBanner.classList.remove('active');
+    });
+
+    cookieDeclineBtn.addEventListener('click', () => {
+        localStorage.setItem('cookie_consent', 'declined');
+        cookieBanner.classList.remove('active');
+    });
+}
+
+// --- LOGIKA CUSTOM CURSOR ---
+export function initCustomCursor() {
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-outline');
+
+    if (!cursorDot || !cursorOutline) return;
+
+    window.addEventListener('mousemove', e => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+        requestAnimationFrame(() => {
+            cursorOutline.style.left = `${posX}px`;
+            cursorOutline.style.top = `${posY}px`;
+        });
+    });
+
+    const interactiveElements = document.querySelectorAll(
+        'a, button, .work-item-card, .skill-card, .theme-switcher, .scroll-indicator, input, textarea'
+    );
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursorDot.classList.add('hover');
+            cursorOutline.classList.add('hover');
+        });
+        el.addEventListener('mouseleave', () => {
+            cursorDot.classList.remove('hover');
+            cursorOutline.classList.remove('hover');
+        });
+    });
+}
+
+// --- LOGIKA SCROLL INDICATOR ---
+export function initScrollIndicator() {
+    const scrollArrow = document.getElementById('scroll-arrow');
+    if (!scrollArrow) return;
+
+    const arrowUp = scrollArrow.querySelector('.arrow-up');
+    const arrowDown = scrollArrow.querySelector('.arrow-down');
+
+    if (!arrowUp || !arrowDown) return;
+
+    const handleScroll = () => {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const fullHeight = document.documentElement.scrollHeight;
+        if (scrollPosition < 50) {
+            scrollArrow.classList.add('visible');
+            arrowDown.style.display = 'block';
+            arrowUp.style.display = 'none';
+            scrollArrow.href = '#about';
+        } else if (scrollPosition + windowHeight >= fullHeight - 50) {
+            scrollArrow.classList.add('visible');
+            arrowDown.style.display = 'none';
+            arrowUp.style.display = 'block';
+            scrollArrow.href = '#';
+        } else {
+            scrollArrow.classList.remove('visible');
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+}

@@ -1,22 +1,17 @@
 // api/visitor-counter.js
 
 export const handler = async () => {
-  // Ini bisa berupa nama domain atau nama proyek Anda.
   const namespace = 'agungsoeltani.web.id';
   const key = 'visitor-count';
 
   try {
-    // Memanggil API untuk menambah dan mendapatkan jumlah pengunjung
-    const response = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+    // URL diperbaiki: 'api.countapi.xyz' menjadi 'countapi.xyz'
+    const response = await fetch(`https://countapi.xyz/hit/${namespace}/${key}`);
     const data = await response.json();
 
-    // Mengembalikan jumlah pengunjung
     return {
       statusCode: 200,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      // Nama propertinya diubah dari 'count' menjadi 'value' sesuai respons CountAPI
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ count: data.value }),
     };
   } catch (error) {

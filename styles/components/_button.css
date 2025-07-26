@@ -1,0 +1,76 @@
+/* --- BUTTONS --- */
+.btn-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s var(--transition-smooth);
+}
+
+.btn-cv:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+.btn-cv svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+}
+
+.btn-cookie {
+    flex-grow: 1;
+    padding: 0.6rem 1rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: 'Satoshi', sans-serif;
+    transition: all 0.4s var(--transition-smooth);
+}
+
+.btn-cookie:hover {
+    transform: scale(1.05);
+}
+
+.btn-cookie {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-cookie-secondary {
+    background-color: var(--border-color);
+    color: var(--secondary-text-color);
+}
+
+body.dark-mode .btn-cookie-secondary {
+    background-color: var(--border-color);
+    color: var(--primary-text-color);
+}
+
+.contact-button {
+    display: inline-block;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.4s var(--transition-smooth);
+    border: none;
+    width: 100%;
+}
+
+.contact-button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px var(--accent-glow);
+}

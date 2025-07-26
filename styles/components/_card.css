@@ -1,0 +1,56 @@
+/* --- CARDS (SKILL CARD) --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.skill-card {
+    background-color: var(--surface-color);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: left;
+    transition: all 0.5s var(--transition-smooth);
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--accent-glow);
+}
+
+.skill-card-icon {
+    margin-bottom: 1.5rem;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--accent-glow), transparent);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.skill-card-icon svg {
+    stroke: var(--accent-color);
+}
+
+.skill-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.skill-card p {
+    color: var(--secondary-text-color);
+    font-size: 0.95rem;
+}
+
+/* --- RESPONSIVE CARDS --- */
+@media (max-width: 768px) {
+    .skills-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+    .skill-card { padding: 1.5rem; }
+}

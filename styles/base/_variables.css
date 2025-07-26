@@ -1,0 +1,24 @@
+:root {
+    /* TEMA LIGHT MODE */
+    --bg-color: #f8f8fa;
+    --surface-color: rgba(252, 252, 254, 0.85); 
+    --primary-text-color: #1a1a1a;
+    --secondary-text-color: #5a5a6a;
+    --border-color: rgba(200, 200, 210, 0.6); 
+    --accent-color: #A374FF;
+    --accent-glow: rgba(163, 116, 255, 0.15);
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --transition-smooth: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body.dark-mode {
+    /* TEMA DARK MODE */
+    --bg-color: #101015;
+    --surface-color: rgba(26, 26, 34, 0.7);
+    --primary-text-color: #e5e5e5;
+    --secondary-text-color: #88889a;
+    --border-color: rgba(60, 60, 70, 0.5);
+    --accent-color: #B388FF;
+    --accent-glow: rgba(179, 136, 255, 0.15);
+}

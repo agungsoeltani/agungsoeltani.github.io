@@ -1,0 +1,23 @@
+/* ==========================================================================
+   MAIN STYLESHEET
+   - Urutan impor file sangat penting.
+   ========================================================================== */
+
+/* 1. Base Styles (variables, resets, basic typography) */
+@import url('/styles/base/_variables.css');
+@import url('/styles/base/_reset.css');
+@import url('/styles/base/_typography.css');
+@import url('/styles/base/_animations.css');
+
+/* 2. Layout Styles (containers, grids, sections) */
+@import url('/styles/layout/_layout.css');
+
+/* 3. Component Styles (reusable parts of the UI) */
+@import url('/styles/components/_button.css');
+@import url('/styles/components/_card.css');
+@import url('/styles/components/_cursor.css');
+@import url('/styles/components/_header.css');
+@import url('/styles/components/_hero.css');
+@import url('/styles/components/_projects.css');
+@import url('/styles/components/_footer.css');
+@import url('/styles/components/_ui-elements.css');

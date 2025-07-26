@@ -1,0 +1,22 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
+
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    transition: background-color 0.5s var(--transition-smooth), color 0.5s var(--transition-smooth);
+    overflow-x: hidden;
+    cursor: default;
+}
+
+a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    transition: color 0.4s var(--transition-smooth);
+}
+
+a:hover {
+    color: var(--primary-text-color);
+}

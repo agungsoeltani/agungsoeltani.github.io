@@ -1,0 +1,106 @@
+/* --- UI ELEMENTS (Banners, Toasts, etc.) --- */
+
+/* Particle Canvas */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Promo Banner */
+.promo-banner {
+    background: linear-gradient(-45deg, var(--accent-color), #8A2BE2, #c5a8ff, var(--accent-color));
+    background-size: 400% 400%;
+    color: white;
+    padding: 0.75rem 0;
+    text-align: center;
+    font-weight: 500;
+    animation: shimmer 15s ease infinite;
+}
+.promo-banner p { margin: 0; }
+.promo-banner .promo-link {
+    color: white;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    width: 48px;
+    height: 48px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.5s var(--transition-smooth);
+    opacity: 0;
+    visibility: hidden;
+}
+.scroll-indicator.visible { opacity: 1; visibility: visible; }
+.scroll-indicator:hover { transform: translateX(-50%) scale(1.1); box-shadow: 0 5px 20px var(--accent-glow); }
+.scroll-indicator svg { stroke: var(--accent-color); transition: opacity 0.4s var(--transition-smooth); }
+.scroll-indicator .arrow-up { display: none; }
+
+/* Cookie Banner */
+.cookie-consent-banner {
+    position: fixed;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 500px;
+    width: calc(100% - 2rem);
+    z-index: 1000;
+    padding: 1.5rem;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: bottom 0.8s var(--transition-smooth);
+}
+.cookie-consent-banner.active { bottom: 1rem; }
+.cookie-text { font-size: 0.9rem; color: var(--secondary-text-color); line-height: 1.6; margin: 0; }
+.cookie-buttons { display: flex; gap: 0.75rem; }
+
+/* Toast Notification */
+.toast-notification {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(200%);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s var(--transition-smooth);
+}
+.toast-notification.show { transform: translateX(-50%) translateY(0); opacity: 1; visibility: visible; }
+.toast-icon { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; }
+.toast-icon svg { width: 100%; height: 100%; }
+.toast-message { font-weight: 500; color: var(--primary-text-color); margin: 0; }
+.toast-notification.success .toast-icon { color: var(--success-color); }
+.toast-notification.error .toast-icon { color: var(--error-color); }

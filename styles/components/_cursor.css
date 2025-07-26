@@ -1,0 +1,36 @@
+@media (pointer: fine) {
+    body { cursor: none; }
+    .cursor-dot {
+        display: block;
+        width: 8px;
+        height: 8px;
+        background-color: var(--accent-color);
+        border-radius: 50%;
+        position: fixed;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 9999;
+        transition: background-color 0.3s ease, transform 0.3s var(--transition-smooth);
+    }
+    .cursor-outline {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border: 2px solid var(--accent-color);
+        border-radius: 50%;
+        position: fixed;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 9999;
+        transition: all 0.2s ease-out;
+    }
+    .cursor-dot.hover {
+        transform: translate(-50%, -50%) scale(0.5);
+        background-color: transparent;
+    }
+    .cursor-outline.hover {
+        transform: translate(-50%, -50%) scale(1.5);
+        border-color: var(--accent-color);
+        background-color: var(--accent-glow);
+    }
+}

@@ -1,0 +1,32 @@
+/* --- STRUKTUR UTAMA --- */
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.section-container {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    margin-bottom: 2.5rem;
+    text-align: left;
+}
+
+.about-section, .project-section, .main-footer {
+    padding: 6rem 0;
+}
+
+/* --- RESPONSIVE LAYOUT --- */
+@media (max-width: 768px) {
+    .section-container { padding: 0 1.5rem; }
+    .section-title { font-size: 1rem; }
+    .about-section, .project-section, .main-footer { padding: 4rem 0; }
+}

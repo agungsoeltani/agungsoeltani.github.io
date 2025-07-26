@@ -1,0 +1,55 @@
+/* --- FOOTER & CONTACT SECTION --- */
+.main-footer { text-align: left; }
+.main-footer .section-title { text-align: left; }
+.main-footer > .section-container > p { max-width: 600px; margin-bottom: 2rem; color: var(--secondary-text-color); }
+.contact-layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 2rem; align-items: flex-start; margin-top: 2rem; }
+.contact-form-wrapper { width: 100%; }
+.contact-form { width: 100%; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.form-group { display: flex; flex-direction: column; }
+.form-group.full-width { grid-column: 1 / -1; }
+.form-group label { margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 500; color: var(--secondary-text-color); }
+.form-group input, .form-group textarea { width: 100%; padding: 1rem; font-family: 'Satoshi', sans-serif; font-size: 1rem; color: var(--primary-text-color); background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; transition: all 0.4s var(--transition-smooth); }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 0 3px var(--accent-glow); }
+.form-group textarea { resize: vertical; }
+
+.discord-presence-wrapper { width: 100%; }
+.discord-presence-card { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.5rem; transition: all 0.5s var(--transition-smooth); height: 100%; display: flex; flex-direction: column; }
+.discord-card-header { display: flex; align-items: center; gap: 1rem; }
+.discord-avatar-wrapper { position: relative; flex-shrink: 0; }
+.discord-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+.discord-status-indicator { position: absolute; bottom: 2px; right: 2px; width: 16px; height: 16px; border-radius: 50%; border: 3px solid var(--surface-color); background-color: #888; }
+.discord-status-indicator.online { background-color: #3ba55d; }
+.discord-status-indicator.idle { background-color: #faa61a; }
+.discord-status-indicator.dnd { background-color: #ed4245; }
+.discord-user-info { min-width: 0; }
+.discord-user-info h3 { font-size: 1.2rem; font-weight: 700; margin: 0; line-height: 1.2; }
+.discord-user-info p { font-size: 0.9rem; color: var(--secondary-text-color); margin: 0; }
+.discord-activity { margin-top: 1.5rem; display: none; align-items: center; gap: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); }
+.discord-activity.visible { display: flex; }
+.activity-album-art { width: 50px; height: 50px; border-radius: 8px; flex-shrink: 0; }
+.activity-details { min-width: 0; }
+.activity-details p { margin: 0; line-height: 1.4; }
+.activity-song, .activity-artist { white-space: normal; overflow: visible; text-overflow: clip; word-wrap: break-word; }
+.activity-song { font-weight: 700; color: var(--primary-text-color); }
+.activity-artist { font-size: 0.85rem; color: var(--secondary-text-color); }
+.visitor-counter { display: flex; align-items: center; gap: 8px; color: var(--secondary-text-color); font-size: 0.9rem; }
+.visitor-counter svg { stroke: var(--secondary-text-color); }
+
+.footer-bottom { margin-top: 6rem; display: flex; justify-content: space-between; align-items: center; color: var(--secondary-text-color); font-size: 0.9rem; border-top: 1px solid var(--border-color); padding-top: 2rem; }
+.footer-links { display: flex; gap: 1.5rem; }
+
+/* --- RESPONSIVE FOOTER --- */
+@media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; } }
+@media (max-width: 768px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
+    .main-footer { text-align: center; }
+    .main-footer .section-title, .main-footer > .section-container > p { text-align: center; margin-left: auto; margin-right: auto; }
+    .contact-form-wrapper { margin-left: auto; margin-right: auto; }
+    .discord-presence-card { text-align: left; }
+    .footer-bottom { gap: 1rem; }
+}
+@media (max-width: 600px) {
+    .footer-bottom { gap: 1rem; }
+}

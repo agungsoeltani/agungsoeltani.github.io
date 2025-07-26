@@ -21,5 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initVisitorCounter();
 
-    console.log("✅ All modules loaded successfully!");
+    console.log("✅ All modules loaded bitch");
 });

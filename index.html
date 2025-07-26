@@ -44,18 +44,16 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-<div class="cursor-dot"></div>
-<div class="cursor-outline"></div>
 <body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
     
     <canvas id="particle-canvas"></canvas>
 
     <div class="content-wrapper">
         <header class="main-header">
             <div class="header-content">
-                <div id="weather-widget">
-                    </div>
-                
+                <div id="weather-widget"></div>
                 <nav class="main-nav">
                     <a href="#about">About</a>
                     <a href="#projects">Projects</a>
@@ -66,11 +64,11 @@
                 </button>
             </div>
         </header>
-<div class="promo-banner">
-    <div class="section-container">
-        <p>✨ Currently available for new opportunities. <a href="#contact" class="promo-link">Let's Connect!</a></p>
-    </div>
-</div>
+        <div class="promo-banner">
+            <div class="section-container">
+                <p>✨ Currently available for new opportunities. <a href="#contact" class="promo-link">Let's Connect!</a></p>
+            </div>
+        </div>
         <main>
             <section class="hero">
                 <div class="section-container">
@@ -93,33 +91,24 @@
                         <div class="about-text">
                             <p>I am a passionate technician dedicated to designing, building, and maintaining the systems that form the backbone of modern technology. With a strong foundation in networking and a deep interest in the Internet of Things (IoT), I focus on creating efficient, secure, and scalable solutions.</p>
                         </div>
-                        
                         <div class="skills-grid">
                             <div class="skill-card">
-                                <div class="skill-card-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.88 3.549L7.12 20.451"/><path d="M4 12.001h16"/><path d="M12 4.001v16"/></svg>
-                                </div>
+                                <div class="skill-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.88 3.549L7.12 20.451"/><path d="M4 12.001h16"/><path d="M12 4.001v16"/></svg></div>
                                 <h3>Networking</h3>
                                 <p>Designing, configuring, and managing network infrastructures (LAN/WAN, Routing, Switching).</p>
                             </div>
                             <div class="skill-card">
-                                <div class="skill-card-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a8 8 0 0 1 14.08 0"/><path d="M1.42 9.5a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a4 4 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12" y2="20"/></svg>
-                                </div>
+                                <div class="skill-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a8 8 0 0 1 14.08 0"/><path d="M1.42 9.5a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a4 4 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12" y2="20"/></svg></div>
                                 <h3>Internet of Things (IoT)</h3>
                                 <p>Developing end-to-end IoT solutions, from hardware programming to cloud data delivery.</p>
                             </div>
                             <div class="skill-card">
-                                <div class="skill-card-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-                                </div>
+                                <div class="skill-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
                                 <h3>Cloud Infrastructure</h3>
                                 <p>Utilizing cloud platforms like AWS or Azure for hosting, data processing, and device management.</p>
                             </div>
                             <div class="skill-card">
-                                <div class="skill-card-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 4 10 4 17 4 21 12 17 12 21 20 17 20 10 20 17"></polyline><path d="M12 7V21"></path><path d="M16.03 9.42a2.5 2.5 0 0 1 0-3.53"></path><path d="M8 6a2.5 2.5 0 0 1 3.53 0"></path><path d="M12 2L12 2A2.5 2.5 0 0 1 12 2z"></path></svg>
-                                </div>
+                                <div class="skill-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 4 10 4 17 4 21 12 17 12 21 20 17 20 10 20 17"></polyline><path d="M12 7V21"></path><path d="M16.03 9.42a2.5 2.5 0 0 1 0-3.53"></path><path d="M8 6a2.5 2.5 0 0 1 3.53 0"></path><path d="M12 2L12 2A2.5 2.5 0 0 1 12 2z"></path></svg></div>
                                 <h3>Linux Administration</h3>
                                 <p>Administration, scripting, and troubleshooting on Linux servers to maintain stability and security.</p>
                             </div>
@@ -127,75 +116,95 @@
                     </div>
                 </div>
             </section>
-
+            
             <section id="projects" class="project-section">
                 <div class="section-container">
-                    <h2 class="section-title">Selected Works</h2>
-                    
+                    <h2 class="section-title">Projects</h2>
                     <div class="project-list">
                         
-                        <div class="work-item-card">
-                            <div class="work-item-header">
-                                <h3 class="work-item-title">Smapar - Smart Parking System</h3>
-                                <span class="work-item-date">June 2024 – Jan 2025 </span>
+                        <div class="project-item">
+                            <div class="project-item-header">
+                                <h3 class="project-item-title">Bytez - QoS Analysis Tool <span class="project-item-location">– Depok, Indonesia</span></h3>
+                                <span class="project-item-date">Feb 2025 - May 2025</span>
                             </div>
-                            <p class="work-item-description">Developed an IoT-based parking spot finder using ESP32-CAM and YOLOv8 for real-time object detection, with data transmitted via MQTT to a Raspberry Pi server.</p>
-                            <div class="work-item-footer">
-                                <div class="work-item-tags">
-                                    <span class="tag-badge">IoT</span>
-                                    <span class="tag-badge">Computer Vision</span>
-                                    <span class="tag-badge">MQTT</span>
-                                </div>
-                                <a href="https://github.com/agungsoeltani/smapar-v.1" class="work-item-details-link">View Details &rarr;</a>
-                            </div>
-                        </div>
-                        
-                        <div class="work-item-card">
-                            <div class="work-item-header">
-                                <h3 class="work-item-title">Flow - Automatic Fan Controller</h3>
-                                <span class="work-item-date">April 2025 – Present</span>
-                            </div>
-                            <p class="work-item-description">An IoT-based automatic fan controller utilizing a DHT22 sensor, enabling real-time environmental monitoring and fan operation control via a web interface using the MQTT protocol.</p>
-                            <div class="work-item-footer">
-                                <div class="work-item-tags">
-                                    <span class="tag-badge">IoT</span>
-                                    <span class="tag-badge">ESP8266</span>
-                                    <span class="tag-badge">MQTT</span>
-                                    <span class="tag-badge">Web Control</span>
-                                </div>
-                                <a href="#" class="work-item-details-link">View Details &rarr;</a>
+                            <p class="project-item-role">Sole Developer & Application Designer</p>
+                            <ul class="project-details-list">
+                                <li>Engineered a standalone MATLAB application to parse and analyze network traffic data from Wireshark capture files (.pcap).</li>
+                                <li>Implemented custom algorithms to automatically calculate key Quality of Service (QoS) metrics, including throughput, packet loss, latency, and jitter.</li>
+                                <li>Designed and developed the entire graphical user interface (GUI), and managed the full project lifecycle from coding to final deployment as a standalone app.</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/agungsoeltani/Bytez" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    <span>View on GitHub</span>
+                                </a>
                             </div>
                         </div>
 
-                         <div class="work-item-card">
-                            <div class="work-item-header">
-                                <h3 class="work-item-title">Yagi Antenna Simulation</h3>
-                                <span class="work-item-date">Sept 2024 – Des 2024 </span>
+                        <div class="project-item">
+                            <div class="project-item-header">
+                                <h3 class="project-item-title">FLOW. <span class="project-item-location">– Depok, Indonesia</span></h3>
+                                <span class="project-item-date">April 2025 – Present</span>
                             </div>
-                            <p class="work-item-description">Designed and simulated a Yagi antenna in CST Studio for TV broadcasting applications, operating in the 400-600 MHz frequency range, with a focus on optimizing gain and radiation patterns.</p>
-                            <div class="work-item-footer">
-                                <div class="work-item-tags">
-                                    <span class="tag-badge">Antenna Design</span>
-                                    <span class="tag-badge">CST Studio</span>
-                                    <span class="tag-badge">RF Simulation</span>
-                                </div>
-                                <a href="#" class="work-item-details-link">View Details &rarr;</a>
+                            <p class="project-item-role">IoT & Front-End Developer</p>
+                            <ul class="project-details-list">
+                                <li>Developed a DHT22 sensor-based fan automation system to monitor air temperature and humidity.</li>
+                                <li>Designed and built a real-time IoT dashboard using HTML, CSS, and JavaScript, with data communication via MQTT protocol hosted locally on a Raspberry Pi server.</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/agungsoeltani" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    <span>View on GitHub</span>
+                                </a>
                             </div>
                         </div>
-                                                 <div class="work-item-card">
-                            <div class="work-item-header">
-                                <h3 class="work-item-title">Bytez</h3>
-                                <span class="work-item-date">February 2025 – Mei 2025 </span>
+
+                        <div class="project-item">
+                            <div class="project-item-header">
+                                <h3 class="project-item-title">SBITE - Wireless Jammer Project<span class="project-item-location">– Depok, Indonesia</span></h3>
+                                <span class="project-item-date">Feb 2025 – Present</span>
                             </div>
-                            <p class="work-item-description">Developed a standalone MATLAB application to analyze network traffic from Wireshark captures, automatically calculating key Quality of Service (QoS) metrics such as throughput, packet loss, latency, and jitter</p>
-                            <div class="work-item-footer">
-                                <div class="work-item-tags">
-                                    <span class="tag-badge">MATLAB</span>
-                                    <span class="tag-badge">QOS</span>
-                                    <span class="tag-badge">TCP/IP</span>
-                                    <span class="tag-badge">WIRESHARK</span>
-                                </div>
-                                <a href="#" class="work-item-details-link">View Details &rarr;</a>
+                            <p class="project-item-role">Project Developer</p>
+                            <ul class="project-details-list">
+                                <li>Working in a two-person team, we designed and developed a proof-of-concept WiFi/Bluetooth jammer using NRF and ESP32 modules.</li>
+                                <li>My primary responsibility was the software development, focusing on the code for frequency management and device control, while my partner handled the hardware integration and assembly.</li>
+                            </ul>
+                             <div class="project-links">
+                                <a href="#" class="project-link private">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                    <span>Private Repository</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="project-item">
+                            <div class="project-item-header">
+                                <h3 class="project-item-title">Yagi Antenna Project <span class="project-item-location">– Depok, Indonesia</span></h3>
+                                <span class="project-item-date">Sept 2024 – Des 2024</span>
+                            </div>
+                            <p class="project-item-role">Project Developer</p>
+                            <ul class="project-details-list">
+                                <li>My partner and I collaborated closely on the design and simulation of a 600 MHz Yagi antenna, focusing on maximizing signal efficiency.</li>
+                                <li>In the practical stage, I took the lead on the hands-on fabrication and was responsible for performance validation using a Vector Network Analyzer (VNA).</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-item">
+                            <div class="project-item-header">
+                                <h3 class="project-item-title">SMAPAR (Smart Parking System) <span class="project-item-location">– Depok, Indonesia</span></h3>
+                                <span class="project-item-date">June 2024 – Jan 2025</span>
+                            </div>
+                            <p class="project-item-role">IoT & Front-End Developer</p>
+                            <ul class="project-details-list">
+                                <li>Collaborated with the team to develop a smart parking system using AI and Computer Vision with OpenCV for real-time space detection.</li>
+                                <li>My primary role was to design and develop the front-end website, creating a live dashboard with HTML, CSS, and JavaScript to display parking data.</li>
+                                <li>Actively participated in the end-to-end process, from system design and functionality testing to supporting the overall software development.</li>
+                            </ul>
+                                <div class="project-links">
+                                <a href="https://github.com/agungsoeltani/smapar-v.1" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    <span>View on GitHub</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -207,32 +216,18 @@
             <div class="section-container">
                 <h2 class="section-title">Let's Connect</h2>
                 <p>I love talking about new ideas. Feel free to reach out and let's make things happen.</p>
-                
                 <div class="contact-layout">
-
                     <div class="contact-form-wrapper">
                         <form id="contact-form" class="contact-form">
                             <input type="hidden" name="access_key" value="7e18441f-699a-46b0-ba04-66122f1bb234">
                             <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" id="name" name="name" placeholder="Tell me your name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" placeholder="Your Email" required>
-                                </div>
-                                <div class="form-group full-width">
-                                    <label for="message">Message</label>
-                                    <textarea id="message" name="message" rows="5" placeholder="Tell me something cool" required></textarea>
-                                </div>
-                                <div class="form-group full-width">
-                                    <button type="submit" class="contact-button">Send</button>
-                                </div>
+                                <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Tell me your name" required></div>
+                                <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="Your Email" required></div>
+                                <div class="form-group full-width"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Tell me something cool" required></textarea></div>
+                                <div class="form-group full-width"><button type="submit" class="contact-button">Send</button></div>
                             </div>
                         </form>
                     </div>
-
                     <div class="discord-presence-wrapper">
                         <div class="discord-presence-card" id="lanyard-card">
                             <div class="discord-card-header">
@@ -245,13 +240,10 @@
                                     <p id="discord-status">Connecting to Discord</p>
                                 </div>
                             </div>
-                            <div class="discord-activity" id="discord-activity">
-                                </div>
+                            <div class="discord-activity" id="discord-activity"></div>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="footer-bottom">
                     <div class="footer-links">
                         <a href="https://www.linkedin.com/in/agungsoeltani/">LinkedIn</a>
@@ -266,26 +258,22 @@
                 </div>
             </div>
         </footer>
-
     </div>
     <a href="#about" class="scroll-indicator" id="scroll-arrow">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-down"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-up"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
     </a>
-    
     <div id="toast-notification" class="toast-notification">
         <div class="toast-icon"></div>
         <p class="toast-message"></p>
     </div>
-
     <script type="module" src="js/main.js"></script>
     <div class="cookie-consent-banner" id="cookie-banner">
-    <p class="cookie-text">
-        We use cookies to ensure the site works properly and to remember your settings. By using this site, you agree to our use of cookies.</p>
-    <div class="cookie-buttons">
-        <button id="cookie-accept" class="btn-cookie">Accept</button>
-        <button id="cookie-decline" class="btn-cookie btn-cookie-secondary">Decline</button>
+        <p class="cookie-text">We use cookies to ensure the site works properly and to remember your settings. By using this site, you agree to our use of cookies.</p>
+        <div class="cookie-buttons">
+            <button id="cookie-accept" class="btn-cookie">Accept</button>
+            <button id="cookie-decline" class="btn-cookie btn-cookie-secondary">Decline</button>
+        </div>
     </div>
-</div>
 </body>
 </html>

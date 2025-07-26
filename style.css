@@ -600,6 +600,18 @@ body.dark-mode .btn-cookie-secondary {
 }
 .activity-artist { font-size: 0.85rem; color: var(--secondary-text-color); }
 
+.visitor-counter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+}
+
+.visitor-counter svg {
+    stroke: var(--secondary-text-color);
+}
+
 .footer-bottom {
     margin-top: 6rem;
     display: flex;
@@ -654,6 +666,11 @@ body.dark-mode .btn-cookie-secondary {
 
     .cursor-dot, .cursor-outline { display: none; }
     body { cursor: default; }
+
+        .footer-bottom {
+        /* Menambahkan counter ke layout kolom di mobile */
+        gap: 1rem; 
+    }
 }
 
 @media (max-width: 600px) {
@@ -663,6 +680,11 @@ body.dark-mode .btn-cookie-secondary {
     }
     .main-nav { display: none; }
     .skill-card { padding: 1.5rem; }
+    
+        .footer-bottom {
+        /* Menambahkan counter ke layout kolom di mobile */
+        gap: 1rem; 
+    }
 }
 
 /* --- KEYFRAMES --- */

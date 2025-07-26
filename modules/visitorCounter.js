@@ -4,7 +4,7 @@
 export async function initVisitorCounter() {
     try {
         // Panggil Netlify Function Anda
-        const response = await fetch('/api/visitor-counter');
+        const response = await fetch('/.netlify/functions/visitor-counter');
         if (!response.ok) {
             throw new Error('Failed to fetch count');
         }

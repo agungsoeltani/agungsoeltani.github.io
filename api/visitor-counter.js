@@ -1,33 +1,29 @@
-// 1. Pindahkan import ke bagian paling atas file
-import { getStore } from '@netlify/blobs';
+// api/visitor-counter.js
 
 export const handler = async () => {
-    try {
-        // 2. Langsung gunakan getStore tanpa perlu await import lagi
-        const store = getStore('visitor_counts');
+  // Ini bisa berupa nama domain atau nama proyek Anda.
+  const namespace = 'agungsoeltani.web.id';
+  const key = 'visitor-count';
 
-        // Mengambil nilai counter saat ini
-        let currentCount = await store.get('main_site', { type: 'json' });
+  try {
+    // Memanggil API untuk menambah dan mendapatkan jumlah pengunjung
+    const response = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+    const data = await response.json();
 
-        // Jika belum ada, mulai dari 0. Lalu tambah 1.
-        const newCount = (currentCount ? currentCount.count : 0) + 1;
-
-        // Simpan kembali jumlah yang baru
-        await store.setJSON('main_site', { count: newCount });
-
-        // Kirim kembali hasilnya
-        return {
-            statusCode: 200,
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ count: newCount }),
-        };
-    } catch (error) {
-        console.error('Error in visitor-counter function:', error);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: 'Internal Server Error' }),
-        };
-    }
+    // Mengembalikan jumlah pengunjung
+    return {
+      statusCode: 200,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // Nama propertinya diubah dari 'count' menjadi 'value' sesuai respons CountAPI
+      body: JSON.stringify({ count: data.value }),
+    };
+  } catch (error) {
+    console.error('Error fetching from CountAPI:', error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Internal Server Error' }),
+    };
+  }
 };

@@ -16,8 +16,5 @@
   "bugs": {
     "url": "https://github.com/agungsoeltani/agungsoeltani.github.io/issues"
   },
-  "homepage": "https://github.com/agungsoeltani/agungsoeltani.github.io#readme",
-  "dependencies": {
-    "@netlify/blobs": "^10.0.7"
-  }
+  "homepage": "https://github.com/agungsoeltani/agungsoeltani.github.io#readme"
 }

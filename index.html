@@ -4,27 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO Meta Tags -->
     <title>Agung Soeltani - Network Engineer, IoT Developer & Cloud Enthusiast</title>
     <meta name="description" content="Official portfolio of Agung Soeltani - Network Engineer, IoT Developer, and Linux Administrator. Explore my projects and connect with me.">
     <meta name="keywords" content="Agung Soeltani, Network Engineer, IoT, DevOps, Cloud, Linux, Portfolio">
     <meta name="author" content="Agung Soeltani">
     <link rel="canonical" href="https://agungsoeltani.web.id/">
     
-    <!-- Open Graph Tags -->
     <meta property="og:title" content="Agung Soeltani Portfolio">
     <meta property="og:description" content="Explore the work and skills of Agung Soeltani in networking, IoT, and DevOps.">
     <meta property="og:image" content="https://agungsoeltani.web.id/images/preview.png">
     <meta property="og:url" content="https://agungsoeltani.web.id">
     <meta property="og:type" content="website">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Agung Soeltani Portfolio">
     <meta name="twitter:description" content="Explore the work and skills of Agung Soeltani in networking, IoT, and DevOps.">
     <meta name="twitter:image" content="https://agungsoeltani.web.id/images/preview.png">
 
-    <!-- Schema.org (Structured Data) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -39,7 +35,7 @@
         "jobTitle": "Network Engineer",
         "worksFor": {
             "@type": "Organization",
-            "name": "Beji Technologies
+            "name": "Beji Technologies"
         }
     }
     </script>
@@ -58,8 +54,7 @@
         <header class="main-header">
             <div class="header-content">
                 <div id="weather-widget">
-                    <!-- Weather content will be loaded by JS -->
-                </div>
+                    </div>
                 
                 <nav class="main-nav">
                     <a href="#about">About</a>
@@ -82,11 +77,11 @@
                     <p class="hero-intro">Hello, I'm</p>
                     <h1 class="hero-title">Agung Soeltani</h1>
                     <p class="hero-tagline">
-                        I build.
+                        I build robust networks and smart IoT solutions.
                     </p>
                     <a href="Assets/CV_AGUNG.pdf" download class="btn-cv">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                        Download CV
+                        Download Resume
                     </a>
                 </div>
             </section>
@@ -136,55 +131,77 @@
             <section id="projects" class="project-section">
                 <div class="section-container">
                     <h2 class="section-title">Selected Works</h2>
-                    <div class="project-grid">
+                    
+                    <div class="project-list">
                         
-                        <div class="project-card">
-                            <div class="project-card-image">
-                                <img src="images/dht22.jpg" alt="flow" class="active" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found';">
-                                <img src="" alt="Project 1 Image B">
-                                <img src="" alt="Project 1 Image C">
+                        <div class="work-item-card">
+                            <div class="work-item-header">
+                                <h3 class="work-item-title">Smapar - Smart Parking System</h3>
+                                <span class="work-item-date">June 2024 – Jan 2025 </span>
                             </div>
-                            <div class="project-card-content">
-                                <h3>Flow</h3>
-                                <p>An IoT-based automatic fan controller utilizing a DHT22 sensor, enabling real-time environmental monitoring and fan operation control via a web interface using the MQTT protocol.</p>
-                            </div>
-                        </div>
-
-                        <div class="project-card">
-                             <div class="project-card-image">
-                                <img src="images/Jammer.jpg" alt="Project 2 Image A" class="active" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found';">
-                                <img src="" alt="Project 2 Image B">
-                            </div>
-                            <div class="project-card-content">
-                                <h3>Sbite</h3>
-                                <p>Exploration and design of a WiFi and Bluetooth signal jammer device to understand interference and frequency spectrum security.</p>
+                            <p class="work-item-description">Developed an IoT-based parking spot finder using ESP32-CAM and YOLOv8 for real-time object detection, with data transmitted via MQTT to a Raspberry Pi server.</p>
+                            <div class="work-item-footer">
+                                <div class="work-item-tags">
+                                    <span class="tag-badge">IoT</span>
+                                    <span class="tag-badge">Computer Vision</span>
+                                    <span class="tag-badge">MQTT</span>
+                                </div>
+                                <a href="https://github.com/agungsoeltani/smapar-v.1" class="work-item-details-link">View Details &rarr;</a>
                             </div>
                         </div>
                         
-                        <div class="project-card">
-                            <div class="project-card-image">
-                                <img src="images/smapar.png" alt="Project 3" class="active" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found';">
+                        <div class="work-item-card">
+                            <div class="work-item-header">
+                                <h3 class="work-item-title">Flow - Automatic Fan Controller</h3>
+                                <span class="work-item-date">April 2025 – Present</span>
                             </div>
-                            <div class="project-card-content">
-                               <h3>Smapar</h3>
-                                <p>Developed an IoT-based automatic parking spot finder using an ESP32-CAM for image capture. The system employs computer vision with YOLOv8 to detect available parking spaces, transmitting the data via MQTT to a local server (Raspberry Pi 5) for web-based monitoring</p>
-                            </div>
-                        </div>
-
-                        <div class="project-card">
-                             <div class="project-card-image">
-                                <img src="images/Yagi.png" alt="Project 4" class="active" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found';">
-                            </div>
-                            <div class="project-card-content">
-                               <h3>Yagi Antenna</h3>
-                                <p>Designed and simulated a Yagi antenna in CST Studio for TV broadcasting applications, operating in the 400-600 MHz frequency range, with a focus on optimizing gain and radiation patterns.</p>
+                            <p class="work-item-description">An IoT-based automatic fan controller utilizing a DHT22 sensor, enabling real-time environmental monitoring and fan operation control via a web interface using the MQTT protocol.</p>
+                            <div class="work-item-footer">
+                                <div class="work-item-tags">
+                                    <span class="tag-badge">IoT</span>
+                                    <span class="tag-badge">ESP8266</span>
+                                    <span class="tag-badge">MQTT</span>
+                                    <span class="tag-badge">Web Control</span>
+                                </div>
+                                <a href="#" class="work-item-details-link">View Details &rarr;</a>
                             </div>
                         </div>
 
+                         <div class="work-item-card">
+                            <div class="work-item-header">
+                                <h3 class="work-item-title">Yagi Antenna Simulation</h3>
+                                <span class="work-item-date">Sept 2024 – Des 2024 </span>
+                            </div>
+                            <p class="work-item-description">Designed and simulated a Yagi antenna in CST Studio for TV broadcasting applications, operating in the 400-600 MHz frequency range, with a focus on optimizing gain and radiation patterns.</p>
+                            <div class="work-item-footer">
+                                <div class="work-item-tags">
+                                    <span class="tag-badge">Antenna Design</span>
+                                    <span class="tag-badge">CST Studio</span>
+                                    <span class="tag-badge">RF Simulation</span>
+                                </div>
+                                <a href="#" class="work-item-details-link">View Details &rarr;</a>
+                            </div>
+                        </div>
+                                                 <div class="work-item-card">
+                            <div class="work-item-header">
+                                <h3 class="work-item-title">Bytez</h3>
+                                <span class="work-item-date">February 2025 – Mei 2025 </span>
+                            </div>
+                            <p class="work-item-description">Developed a standalone MATLAB application to analyze network traffic from Wireshark captures, automatically calculating key Quality of Service (QoS) metrics such as throughput, packet loss, latency, and jitter</p>
+                            <div class="work-item-footer">
+                                <div class="work-item-tags">
+                                    <span class="tag-badge">MATLAB</span>
+                                    <span class="tag-badge">QOS</span>
+                                    <span class="tag-badge">TCP/IP</span>
+                                    <span class="tag-badge">WIRESHARK</span>
+                                </div>
+                                <a href="#" class="work-item-details-link">View Details &rarr;</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-        </main>
+            </main>
 
         <footer id="contact" class="main-footer">
             <div class="section-container">
@@ -194,7 +211,6 @@
                 <div class="contact-layout">
 
                     <div class="contact-form-wrapper">
-                        <!-- PERUBAHAN: action dan method dihapus, id ditambahkan -->
                         <form id="contact-form" class="contact-form">
                             <input type="hidden" name="access_key" value="7e18441f-699a-46b0-ba04-66122f1bb234">
                             <div class="form-grid">
@@ -230,8 +246,7 @@
                                 </div>
                             </div>
                             <div class="discord-activity" id="discord-activity">
-                                <!-- Konten aktivitas akan diisi oleh JS -->
-                            </div>
+                                </div>
                         </div>
                     </div>
 
@@ -254,13 +269,12 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-up"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
     </a>
     
-    <!-- KODE BARU: Elemen untuk Message Box / Toast Notification -->
     <div id="toast-notification" class="toast-notification">
         <div class="toast-icon"></div>
         <p class="toast-message"></p>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="js/main.js"></script>
     <div class="cookie-consent-banner" id="cookie-banner">
     <p class="cookie-text">
         We use cookies to ensure the site works properly and to remember your settings. By using this site, you agree to our use of cookies.</p>

@@ -1,5 +1,3 @@
-// js/modules/animations.js
-
 export function init3dFavicon() {
     if (typeof THREE === 'undefined') {
         console.error('Three.js library not loaded, skipping 3D favicon.');

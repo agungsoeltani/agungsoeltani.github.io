@@ -10,22 +10,33 @@
     z-index: -1;
 }
 
-/* Promo Banner */
 .promo-banner {
-    background: linear-gradient(-45deg, var(--accent-color), #8A2BE2, #c5a8ff, var(--accent-color));
+    /* Menggunakan warna bendera Palestina: hijau, merah, hitam */
+    background: linear-gradient(-45deg, #009736, #EE2A35, #000000, #009736);
     background-size: 400% 400%;
     color: white;
     padding: 0.75rem 0;
     text-align: center;
     font-weight: 500;
-    animation: shimmer 15s ease infinite;
+    animation: palestine-gradient 20s ease infinite; /* Durasi diperpanjang menjadi 20 detik */
 }
-.promo-banner p { margin: 0; }
+
+.promo-banner p {
+    margin: 0;
+}
+
 .promo-banner .promo-link {
     color: white;
     font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 4px;
+}
+
+/* Keyframes untuk animasi gradien Palestina yang lebih halus */
+@keyframes palestine-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Scroll Indicator */
